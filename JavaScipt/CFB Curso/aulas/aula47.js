@@ -14,5 +14,5 @@ btnPesquisar.addEventListener("click",(evt)=>{
             return true
         }
     })
-    console.log(retorno)
+    console.log(retorno);
 })
