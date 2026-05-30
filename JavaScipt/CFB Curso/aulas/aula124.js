@@ -17,7 +17,7 @@ const obterDados = ()=>{
     })
 }
 //get , buscar , post enviar
-let inteval = setInterval(obterDados,1000)
+//let inteval = setInterval(obterDados,1000)
 
 let dados={
     nome: "Bruno",
