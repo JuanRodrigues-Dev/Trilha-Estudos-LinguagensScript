@@ -9,6 +9,10 @@ const route = router.get ('/', (req,res,next)=>{
         version:"0.0.1"
     });
 });
+const create = router.post ('/', (req,res,next)=>{
+    res.status(200).send();
+});
+
 app.use('/', route);
 
 module.exports = app;
