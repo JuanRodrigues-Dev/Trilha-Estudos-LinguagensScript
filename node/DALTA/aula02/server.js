@@ -25,6 +25,7 @@ app.use('/',route);
 //Fazer que o servidor fique ouvindo a porta 3000
 server.listen(port);
 server.on('error', onError);
+server.on('listening' , onListening);
 console.log('API rodando na porta' , port);
 
 function normalizePort(val){
@@ -58,3 +59,11 @@ function onError (error){
             throw error;
     }
 }
+
+function onListening (){
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+        ? 'pipe ' + addr 
+        : 'port ' + addr.port;
+        debug('Listening on ' + bind);
+    }
