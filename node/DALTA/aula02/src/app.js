@@ -4,8 +4,16 @@ const mongoose = require('mongoose');
 
 const app = express();
 const router = express.Router();
-//conecta banco
-mongoose.connect('mongodb+srv://balta:balta@cluster0.iseibzj.mongodb.net/')
+
+const mongoUri = process.env.MONGO_URI || 'mongodb+srv://balta:balta@cluster0.iseibzj.mongodb.net/?retryWrites=true&w=majority';
+
+// Conecta ao banco
+mongoose.connect(mongoUri)
+    .then(() => console.log('MongoDB conectado com sucesso'))
+    .catch((error) => console.error('Falha ao conectar no MongoDB:', error.message));
+
+//carregar models
+const Product = require('./models/product')
 
 //Rotas
 const indexRoute = require('./routes/index-route');
